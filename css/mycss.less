@@ -1,0 +1,1190 @@
+@import (inline, once) "castom.css";
+@import (inline, once) "font-awesome.css";
+@import (reference, once, less) "myMixin";
+
+*{
+	box-sizing:border-box;
+}
+body{
+	margin:0;
+	font-family:"Times New Roman";
+	.fonts();
+	font-size:16px;
+}
+/* preloader */
+.main-container-preloader{
+	display:flex;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100vw;
+	height:100vh;
+	background:white;
+	opacity:1;
+	transform:scale(1);
+	z-index:110;
+	.container-preloader{
+		margin:auto;
+		font-size:290px;
+		color:@bcButtonRecordingClasses;
+		position:relative;
+		border:1px solid white;
+	}
+	.percentage-download{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+		font-size:30px;
+	}
+}
+.main-container-preloader--hide{
+	opacity:0;
+	transform:scale(0);
+	transition:all .5s;
+}
+/**/
+.container{
+	display:flex;
+	max-width:1170px;
+	margin:0 auto;
+}
+.container header{
+	display:flex;
+	justify-content:space-between;
+	align-items: center;
+	width:100%;
+	padding: 0 15px;
+  margin: 28px 0;
+}
+.logo-link{
+	display:block;
+}
+.header-link-list{
+	margin:0;
+	padding:0;
+	list-style:none;
+	display:flex;
+	min-width:100%;
+}
+.header-link-items{
+	margin:0 15px 0 0;
+	.header-link{
+		display:block;
+		text-decoration:none;
+		color:#141414;
+		font-size:20px;
+		letter-spacing:.9px;
+		position:relative;
+		white-space: nowrap;
+			&::before{
+				content:"";
+				position:absolute;
+				width:0;
+				height:1px;
+				background:@linkKolorHover;
+				left:0;
+				bottom:0;
+				transition:width .2s linear;
+			}
+		&:hover{
+			color:@linkKolorHover;
+		}
+		&:hover::before{
+			width:100%;
+		}
+	}
+	&:last-child {
+		margin:0;
+		& .header-link{
+			font-family:"Times New Roman";
+			.fonts( @color:@linkKolorHover;);
+			&::before{
+				width:100%;
+			}
+		}
+	}
+}
+.about-classes-container{
+	background:
+		url("../img/english-yes-bg.png"),
+		url("../img/bagel-about-class.png");
+	background-repeat:no-repeat,no-repeat;
+	background-position: center 20px,26vmin 40%;
+	background-size:auto,auto;
+}
+.col{
+	width:50%;
+	display:flex;
+	flex-direction:column;
+	padding:0 15px;
+}
+
+.about-classes--title{
+	.fonts(@fontWeight:600;);
+	text-transform:uppercase;
+	position:relative;
+	padding:16.6666vmin 0 0 0;/*5.0925vmin*/
+	letter-spacing: -2px;
+	background:url("../img/circle-about-class.png") no-repeat 87.8% 8.8vmin;
+	
+	&::after{
+		.beforeForTitle(@bottom:-20px;);
+	}
+}
+.about-classes--content{
+	font-size:18px;
+	margin: 0 0 0 @marginRight;
+    //padding: 0 0 17.8% 0;
+    background:url("../img/wave.png") no-repeat 100% 75%;
+}
+.recording-classes{
+	font-family:inherit;
+	.fonts(@fontWeight:600; @color:#ffffff;);
+	font-size:18px;
+	padding:25px 40px;
+	margin: 0 0 12.0370vmin @marginRight;
+	align-self:flex-start;
+	.buttonRecordingClasses();
+	&:hover{
+		background-color:lighten(@bcButtonRecordingClasses,8%);/*#f63f54*/
+		box-shadow:0 12px 10px lighten(@bcButtonRecordingClasses,20%);
+	}
+	&:active{
+		background-color:darken(@bcButtonRecordingClasses,8%);/*#d50d25*/
+	}
+}
+.about-classes-bg{
+	background:url("../img/red-bus.png") no-repeat center;
+	background-size:contain;
+}
+/**/
+.main-container-trial-lesson{
+	display:flex;
+	position:fixed;
+	top:0;
+	left:0;
+	height:0;
+	width:100vw;
+	overflow:hidden;
+	transition:height .3s .3s;
+	.transitionTrialLesson(height;);
+	background:rgba(107,107,107,.6);
+	z-index:100;
+}
+
+.main-container-trial-lesson--open{
+	height:100vh;
+	overflow:auto;
+	.transitionTrialLesson(height; @delay:0s;);
+}
+.container-trial-lesson{
+	margin:auto;
+	display:flex;
+	flex-direction:column;
+	background-color:#ffffff;
+	min-width:500px;
+	width:43.593%;
+	max-width:835px;
+	overflow:auto;
+	transform:scale(0);
+	.transitionTrialLesson(transform; @delay:0s;);
+}
+.main-container-trial-lesson--open .container-trial-lesson{
+	transform:scale(1);
+	.transitionTrialLesson(transform;);
+}
+.trial-lesson__icon-close{
+	display:flex;
+	justify-content:flex-end;
+	font-size:40px;
+	margin: 2.3148vmin;
+}
+.trial-lesson__icon-close span{
+	cursor:pointer;
+	position:relative;
+	transition:.3s;
+	//line-height:1rem;
+	align-self:center;
+	&:hover{
+		//transform:rotate(180deg);
+		color:@bcButtonRecordingClasses;
+		font-weight:bold;
+	}
+}
+.trial-lesson__title{
+	text-transform:uppercase;
+	margin:11.5740vmin 15px 2.7777vmin 15px;
+	.fonts( @fontWeight:600;);
+	text-align:center;
+}
+.trial-lesson__content{
+	font-size:18px;
+	margin:0 15px 25px 15px;
+	letter-spacing:1px;
+	text-align:center;
+	width: 65%;
+  min-width: 320px;
+}
+.container-tel{
+	display:flex;
+	flex-direction:column;
+}
+.trial-lesson__tel{
+	font-family: inherit;
+	margin:0 15px 15px 15px;
+	border:1px solid #bababa;
+	border-radius:40px;
+	letter-spacing:1px;
+	outline:none;
+	padding:25px 40px;
+}
+.trial-lesson__title,
+.trial-lesson__content,
+.container-tel{
+	align-self:center;
+
+}
+.trial-lesson__submit{
+	.recording-classes;
+	font-family: inherit;
+	align-self: stretch;
+	margin:0 15px 12.7777vmin 15px;
+}
+/**/
+.main-container-list-situations{
+	background:url("../img/main-container-list-situations-bg.png") no-repeat center;
+	background-size:100% 100%;
+	margin-top:9.26vmin;
+	border:1px solid transparent;
+}
+.list-situations-title{
+	width:100%;
+	.fonts(600);
+	margin:0 15px 0 15px;
+	padding-top:15.75vmin;
+	text-transform:uppercase;
+	background:url("../img/list-situations-title-bg.png") no-repeat 35% center;
+	background-size:contain;
+}
+.description-situations__title{
+	.fonts( 600);
+  margin:0 0 20px 0;
+  position: relative;
+	& .description-situations__point{
+		color:@bcButtonRecordingClasses;
+	}
+}
+
+.situation-hotel__title,
+.airport-problem__title {
+  right: -65px;
+  text-align: right;
+}
+
+.situation-hotel__bg{
+	width:40%;
+	height:20px;
+	background:url("../img/wave.png") no-repeat;
+	background-size:contain;
+	position:relative;
+	left:72%;
+}
+/*col*/
+.description-situations{
+	padding:0 15px;
+	width:25%;
+	margin-left:auto;
+	display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+.description-situations__content{
+	font-size:18px;
+	margin:0 0 20.5% 0;
+}
+.image-situations{
+	width:41.6666%;
+	padding:0 15px;
+}
+.image-situations{
+	& img{
+		width:100%;
+	}
+}
+.image-situation-airport-problem{
+	width:25%;
+}
+/**/
+.container-direction-movement,
+.container-in-the-end{
+	flex-direction:row-reverse;
+}
+.direction-movement,
+.in-the-end{
+	margin:0 auto 0 0;
+}
+.container-in-the-end{
+	margin-bottom:20.8333vmin;
+}
+.direction-movement__title,
+.in-the-end__title{
+	right:55px;
+}
+/* new block */
+.main-container-foreseen-situations{
+	//background-image:url("../img/foreseen-situations-bg.jpg");
+	background-repeat:no-repeat; 
+	background-position: right top;
+	background-size:48%;
+}
+.foreseen-situations__title{
+	position:relative;
+	&::after{
+		.beforeForTitle(@bottom:-20px;);/*-3.1296vmin*/
+	}
+}
+.list-foreseen-situations{
+	padding-bottom:12.6852vmin;
+	position:relative;
+	&::after{
+		content:"";
+		position:absolute;
+		width: 15%;
+    height: 20px;
+    bottom:5px;
+    left:65%;
+    background: url("../img/wave.png") no-repeat;
+    background-size: contain;
+	}
+}
+.item-foreseen-situations{
+	padding:0 15px;
+	font-size:18px;
+	width:25%;
+	& .item-foreseen-situations__title{
+		font-size:inherit;
+		margin:0 0 20px 0;
+		padding: 15px 0 15px 25px;
+		//background-image:url("../img/item-foreseen-situations__title-bg.jpg");
+		background-repeat:no-repeat;
+		background-position:left center;
+	}
+	& .item-foreseen-situations__content{
+		margin:0;
+		padding: 0 0 0 25px;
+	}
+}
+/* new block */
+.main-container-list-teachers{
+	position:relative;
+	/*
+	background-image:
+		url("../img/three-waves.png"),
+		url("../img/bagel-gray-list-teacher.png");
+		*/
+	background-repeat:no-repeat;
+	background-position: 90%,88% top;
+  background-size:3.4375%,22.55%;
+
+}
+
+.list-teachers__tittle{
+	.fonts(@fontWeight:600;);
+	margin:4.63vmin 15px;
+	text-transform:uppercase;
+}
+.item-list-teachers{
+	width:33.3333%;
+	padding:0 15px;
+	& img{
+		width:100%;
+	}
+	& .item-list-teachers__title{
+		margin:20px 0;
+		font-size:18px;
+	}
+	& .item-list-teachers__content{
+		font-size:14px;
+		margin:0 0 10px 0;
+	}
+}
+.horizontal-line{
+	width:100%;
+	height:2px;
+	background-color:#e9e9e9;
+	position:absolute;
+	top:50%;
+	left:0;
+	z-index: -1;
+	&::before{
+		content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 12.5520%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #2429ff;
+    border-radius: 50%;
+	}
+}
+/* new block */
+.main-container-cost__bg{
+	display:none;
+}
+
+.container-cost{
+	width:66.6666%;
+	padding:15px;
+	margin:0 0 0 auto;
+	& .cost__title{
+		text-transform:uppercase;
+		position:relative;
+		padding:6.9444vmin 0 0 0;
+		//background:url("../img/list-situations-title-bg.png");
+		background-repeat:no-repeat;
+		background-position: right top;
+		background-size:contain;
+		&::after{
+			.beforeForTitle(@bottom:-20px;);
+		}
+		
+	}
+	.price{
+	  color:@bcButtonRecordingClasses;
+		font-weight:bold;
+		margin:0;
+	}
+	.cost__content{
+		font-size:18px;
+	}
+}
+.container-list-educational{
+	width:66.6666%;
+	margin:0 0 30px auto;
+	display: flex;
+	.list-educational{
+		margin:0;
+		list-style:none;
+		width:50%;
+		padding:0 15px;
+		font-size:18px;
+	}
+}
+
+/* new block */
+.main-container-description-training{
+	//background-image:url("../img/main-container-description-training-bg.png");
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:auto 100%;
+	border:1px solid transparent;
+	margin-top:6.4814vmin;
+}
+.main-container-description-training .container:last-child{
+	margin-bottom:22.2222vmin;
+}
+.container-row-reverse{
+	flex-direction:row-reverse;
+}
+.description-training__main-title{
+	position:relative;
+	text-transform:uppercase;
+	&::after{
+		.beforeForTitle(@bottom:-20px;);/*-2.1296vmin*/
+	}
+}
+.description-training__col{
+	width:50%;
+	font-size:18px;
+	padding:0 15px;
+	display: flex;
+	position:relative;
+  flex-direction: column;
+  justify-content: center;
+	.description-training__title{
+		font-size:18px;
+		padding:0 0 0 38px;
+		margin:0; 
+		line-height:7.7777vmin;/*84px*/
+	}
+	.description-training__content{
+		padding:0 0 0 38px;
+		margin:0 0 20px 0;
+	}
+	span{
+		width:100%;
+		position:relative;
+	}
+	img{
+		width:100%;
+		margin-bottom:6.4814vmin;
+	}
+}
+.simple-memorization__title{
+	/*
+	background-image:
+		url("../img/red-arrow.png"),
+		url("../img/simple-memorization__title-bg.png");
+	*/
+	.descriptionTraining__title-bg();
+}
+.dialogues__title{
+	/*
+	background-image:
+		url("../img/red-arrow.png"),
+		url("../img/dialogues__title-bg.png");
+		*/
+	.descriptionTraining__title-bg();
+}
+.talk-listen__title{
+	/*
+	background-image:
+		url("../img/red-arrow.png"),
+		url("../img/talk-listen__title-bg.png");
+		*/
+	.descriptionTraining__title-bg();
+}
+.iteration__title{
+	/*
+	background-image:
+		url("../img/red-arrow.png"),
+		url("../img/iteration__title-bg.png");
+		*/
+	.descriptionTraining__title-bg();
+}
+.simple-memorization-img span::after{
+	.descriptionTraining__img-bg(30px; 100%; 5.97vmin; 35px; "img/three-waves.png");
+}
+.dialogues-img span::after{
+	.descriptionTraining__img-bg(-4vmin; 11%; 2.3148vmin; 2.3148vmin; "img/circle-about-class.png");
+}
+.iteration-img span::after{
+	.descriptionTraining__img-bg(-7.8703vmin; 100%; 7.8703vmin; 7.8703vmin; "img/bagel-about-class.png");
+}
+ /*reviews start*/
+ .container-list-reviews{
+ 	display:block;
+ 	position:relative;
+ 	overflow:hidden;
+ 	}
+
+ .list-reviews{
+ 	font-size:0;
+ 	position:relative;
+ 	min-width:10000px;
+ 	transition:margin-left .8s linear;
+ }
+ .list-reviews__item{
+ 	display:inline-block;
+ 	font-size:0;
+ 	vertical-align:top;
+ }
+ .list-reviews__img{
+ 	width:16.6666%;
+ 	display:inline-block;
+ 	vertical-align:top;
+ 	padding: 0 15px;
+ 		img{
+ 			width:100%;
+ 		}
+ }
+ .list-reviews__item .list-reviews__content{
+ 	display:inline-block;
+ 	width:83.3333%;
+ 	margin:0;
+ 	vertical-align:top;
+  .list-reviews__title{
+  	font-size:18px;
+  	margin:0 0 30px 0;
+  }
+  p{
+  	font-size:18px;
+  	margin:0 0 30px 0;
+  }
+  a{
+  	font-size:18px;
+  	display:inline-block;
+  	color:@bcButtonRecordingClasses;
+  	margin:0 0 5.5555vmin 0;
+  	transition:color .3s;
+  	&:hover{
+  		color:lighten(@bcButtonRecordingClasses,20%);
+  	}
+  }
+}
+
+.reviews__tittle{
+	position:relative;
+	text-transform:uppercase;
+	&::after{
+		.beforeForTitle(@bottom:-20px;);
+	}
+
+}
+.container-controls{
+	justify-content:space-between;
+	padding:0 15px;
+}
+.controls{
+	cursor:pointer;
+	font-size:19px;
+	box-shadow:0 3px 5px lighten(@bcButtonRecordingClasses,20%);
+	transition:.2s;
+	background-color:@bcButtonRecordingClasses;
+	color:white;
+	padding:0 5px;
+  border-radius: 5px;
+  &:hover{
+		background-color:lighten(@bcButtonRecordingClasses,8%);/*#f63f54*/
+		box-shadow:0 6px 10px lighten(@bcButtonRecordingClasses,20%);
+	}
+	&:active{
+		background-color:darken(@bcButtonRecordingClasses,8%);/*#d50d25*/
+	}
+}
+.next,
+.previous{
+	display:none;
+}
+input[disabled] + .controls{
+	background:#DCD6D6;
+	box-shadow:0 3px 5px lighten(#DCD6D6,5%);
+	transition:.2s;
+	&:hover{
+		background-color:lighten(#DCD6D6,8%);/*#f63f54*/
+		box-shadow:0 6px 10px lighten(#DCD6D6,20%);
+	}
+	&:active{
+		background-color:darken(#DCD6D6,8%);/*#d50d25*/
+	}
+}
+.container-scroll-bar{
+	align-self:center;
+	height:5px;
+	display:flex;
+	background-color:#e9e9e9;
+	flex-grow: 1;
+	.scroll-bar{
+		background-color:@bcButtonRecordingClasses;
+		border-top-right-radius:5px;
+		border-bottom-right-radius:5px;
+		transition:width 0.8s linear;
+	}
+}
+
+/* start free-lesson*/
+.main-container-free-lesson{
+	//background-image:url("../img/free-lesson-bg-1.jpg");
+	background-repeat:no-repeat;
+	background-position:left center;
+	background-size:100%;
+}
+.container-free-lesson-sm{
+	display:none;
+	img{
+		display:none;
+	}
+}
+.container-free-lesson{
+	margin-left:auto;
+}
+.free-lesson__title{
+	.about-classes--title;
+	background:none;
+	padding:0;
+}
+.free-lesson__content{
+	.about-classes--content;
+	background:none;
+	padding:0;
+	margin-bottom:9.1666vmin;
+}
+.free-lesson__recording-classes{
+	margin-bottom:16.6666vmin;
+}
+/* start footer */
+.main-conteiner-footer{
+	background-color:#f8f8f8;
+	padding:3vmin 0;
+}
+.conteiner-footer{
+	flex-wrap:wrap;
+}
+.container-sicial-and-logo,
+.container-tel-and-addres{
+	width:100%;
+	justify-content:space-between;
+	padding:15px 0;
+}
+.container__logo{
+	span{
+		display:none;
+	}
+}
+.container__logo,
+.container_school{
+	width:35%;
+	padding:0 15px;
+	display:flex;
+	align-items:center;
+	.logo-sm{
+		display:none;
+	}
+}
+.conteiner-footer-link{
+	margin:0;
+	padding:0 15px;
+	list-style:none;
+	display:flex;
+	justify-content: flex-end;
+}
+.container__sicial-link{
+	width:25%;
+  justify-content: flex-end;
+  align-items:center;
+  li:not(:last-child){
+  	margin-right:20px;
+  }
+  a{
+  	font-size:26px;
+  	color:#cbcbcb;
+  	text-decoration:none;
+  	transition:.2s linear;
+  	:hover{
+  		color:@linkKolorHover;
+  	}
+  }
+}
+.container__coordinates{
+	width:65%;/*58.33%*/
+	li:not(:last-child){
+  	margin-right:20px;
+  	&:hover{
+  		a{
+  			color:@linkKolorHover;
+  			&::after{
+  				width:100%;
+  			}
+  		}
+  	}
+  }
+  a{
+	  font-size:18px;
+	  color:#141414;
+	  text-decoration:none;
+	  transition:.2s linear;
+	  position:relative;
+  		&::after{
+  			content: "";
+		    position: absolute;
+		    width: 0;
+		    height: 1px;
+		    background: #f63244;
+		    left: 0;
+		    bottom: 0;
+		    transition: width .2s linear;
+  		}
+  }
+	li:last-child{
+		a{
+			color:@linkKolorHover;
+			&::after{
+				width:100%;
+			}
+		}
+	}
+}
+
+/* start map */
+.main-container-map{
+	.main-container-trial-lesson;
+	.container-map{
+		.container-trial-lesson;
+		min-height:320px;
+		height:80vh;
+		min-width:320px;
+		width:80vw;
+		.container-map__icon-close{
+			.trial-lesson__icon-close;
+			.map__icon-close{
+				cursor: pointer;
+			    position: relative;
+			    transition: .3s;
+		    &:hover{
+		    	//transform: rotate(180deg);
+    			color: #f5112c;
+    			font-weight:bold;
+		    }
+			}
+		}
+		iframe{
+			flex-grow:1;
+			border:none;
+		}
+	}
+}
+.main-container-map.main-container-map--open{
+	.main-container-trial-lesson--open;
+	.container-map{
+		.main-container-trial-lesson--open .container-trial-lesson;
+	}
+}
+.transition-title{
+	left:0;
+	transition:left .5s linear;
+}
+.hide-title{
+	left:-100vw;
+} 
+.image-situations .download-js,
+.item-list-teachers .download-js,
+.description-training__col .download-js,
+.list-reviews__img .download-js{
+	display:block;
+	margin:auto;
+	width:100px;
+}
+
+/* media start */
+@media all and (max-width:1600px){
+	.about-classes-container{
+		background:
+			url("../img/english-yes-bg.png");
+		background-repeat:no-repeat;
+		background-position: center 20px;
+		background-size:auto;
+	}
+	.about-classes-bg{
+		background: 
+			url("../img/bagel-about-class.png"),
+			url("../img/red-bus.png");
+		background-repeat:no-repeat,no-repeat;
+		background-position:10px 90%, center;
+    background-size:auto, contain;
+	}
+}
+
+@media all and (min-width:1201px){
+	.container{
+		width: 1170px;
+	}
+}
+@media all and (min-width:992px) and (max-width:1200px){
+	.container{
+		width: 990px;
+	}
+}
+@media all and (min-width:768px) and (max-width:991px){
+	.container{
+		width: 750px;
+	}
+}
+@media all and (max-width:767px){
+	.container{
+		width: 100vw;
+	}
+}
+
+@media all and (max-width:1300px){
+	.description-situations{
+		width: 58.3334%;
+	}
+	.item-foreseen-situations{
+		width:33.3333%;
+	}
+	.main-container-foreseen-situations{
+		background-size:40%;
+	}
+	.list-foreseen-situations::after{
+		left:85%;
+	}
+	.container-cost,
+	.container-list-educational{
+		width:83.3333%;
+	}
+}
+@media all and (min-width:650px) and (max-width:995px){
+	.conteiner-footer-link li:first-child{
+		display:none;
+	}
+}
+@media all and (max-width:991px){
+	.recording-classes{
+		font-size:16px;
+		padding:15px 15px;
+	}
+	.container-trial-lesson{
+		min-width:100%;
+	}
+	.trial-lesson__submit,
+	.trial-lesson__tel{
+		font-size:16px;
+		padding:15px 15px;
+		margin-left:0;
+		margin-right:0;
+	}
+	
+}
+
+
+@media all and (max-width:767px){
+	
+	.header-link-items:first-child{
+			display:none;
+	}
+	.recording-classes{
+		margin-left:0;
+		align-self:center;
+
+	}
+	.horizontal-line{
+		display:none;
+	}
+
+}
+@media all and (max-width:650px){
+	.about-classes-container{
+		background:none;
+	}
+	.container{
+		flex-wrap:wrap;
+		width: 100%;
+	}
+	
+	.header-link-items:first-child{
+			display:none;
+	}
+	.about-classes-bg{
+		padding-top:250px;
+		background: url("../img/bagel-about-class.png"), url("../img/red-bus.jpg");
+		background-repeat: no-repeat, no-repeat;
+    	background-position: 10px 90%, center;
+		background-size:40px,contain;
+	}
+	.about-classes{
+	}
+	.about-classes--title,
+	.about-classes--content{
+		margin-left:0;
+		align-self:center;
+		text-align:center;
+	}
+	.about-classes--title::after{
+		left:50%;
+		transform:translateX(-50%);
+	}
+	.header-link-list{
+		flex-direction:column;
+		& .header-link-items:nth-child(2){
+			margin:0 0 15px 0;
+		}
+		& .header-link-items:last-child{
+			align-self:flex-start;
+		}
+	}
+	/**/
+	.main-container-list-situations{
+		text-align:center;
+		background-size: cover;
+	}
+	.list-situations-title{
+		text-align:center;
+		background-position: 100%;
+	}
+	.col,
+	.description-situations,
+	.image-situations,
+	.item-foreseen-situations,
+	.item-list-teachers,
+	.description-training__col{
+		width:100%;
+	}
+	.item-foreseen-situations{
+		margin-bottom: 30px;
+	}
+	.description-situations__title{
+		position:static;
+		margin-top:12.5vmin;
+		text-align:center;
+	}
+	.description-situations__content{
+		margin-bottom:25px;
+	}
+	.description-situations__bg{
+		display:none;
+	}
+	.image-situations{
+	}
+	.main-container-foreseen-situations{
+		text-align:center;
+		background-image:none !Important;
+	}
+	
+	.container-foreseen-situations,
+	.container-list-teachers__tittle{
+		justify-content:center;
+	}
+	.foreseen-situations__title::after{
+		left:50%;
+		transform:translateX(-50%);
+	}
+	.item-foreseen-situations .item-foreseen-situations__title{
+		background-position:center;
+		padding-left: 0;
+	}
+	.item-foreseen-situations .item-foreseen-situations__content {
+    padding:0;
+	}
+	.item-list-teachers{
+		margin-bottom:30px;
+	}
+	.container .item-list-teachers img,
+	.description-training__col span{
+		display: block;
+    margin-left: auto;
+    margin-right: auto;
+	}
+	.item-list-teachers .item-list-teachers__title{
+		text-align:center;
+	}
+	.container-cost,
+	.container-list-educational,
+	.container-list-educational .list-educational {
+    width: 100%;
+    flex-wrap:wrap;
+    text-align:center;
+	}
+	.main-container-cost__bg{
+		display:block;
+		width:100%;
+		height:320px;
+		//background-image:url("../img/bigben.jpg") no-repeat center/contain;
+		background-repeat:no-repeat;
+		background-position:center;
+		background-size:contain;
+	}
+	.container-cost .cost__title::after{
+		left:50%;
+		transform:translateX(-50%);
+	}
+	.container-description-training{
+		justify-content: center;
+		text-align:center;
+	}
+	.description-training__main-title::after,
+	.reviews__tittle::after,
+	.free-lesson__title::after{
+		left:50%;
+		transform:translateX(-50%);
+	}
+	.description-training__col .description-training__title{
+		align-self:center;
+		padding: 0 0 0 20px;
+	}
+	.description-training__col .description-training__content{
+		padding:0;
+		margin-bottom: 6.4814vmin;
+		text-align:center;
+	}
+	.list-reviews__item{
+		width:100vw;
+	}
+	.list-reviews__img{
+		width:100vw;
+		text-align:center;
+		
+	}
+	.list-reviews__item .list-reviews__content{
+		width:100vw;
+		text-align:center;
+	}
+	.container-reviews__tittle{
+		justify-content:center;
+	}
+	.list-reviews__item .list-reviews__content .list-reviews__title{
+		margin:20px 0;
+	}
+	.main-container-free-lesson{
+		background:none;
+		text-align: center;
+	}
+	.container-free-lesson{
+		background:url("../img/circle-about-class.png") no-repeat 12.5vmin 96%;
+	}
+	.container-free-lesson-sm{
+		display:block;
+		img{
+			margin-top:30px;
+			display:inline-block;
+		}
+	}
+	.free-lesson__content{
+		margin-left:0;
+	}
+	.container-sicial-and-logo,
+	.container-tel-and-addres{
+		padding:0;
+	}
+	.container__logo{
+		width:100%;
+		flex-direction: column;
+		a{
+			display:none;
+		}
+		.logo-sm{
+			display:block;
+			margin-bottom:20px;
+		}
+		span{
+			display:block;
+			margin-bottom:20px;
+		}
+
+	}
+	.container .conteiner-footer-link{
+		width:100%;
+		justify-content: center;
+		margin-bottom:20px;
+	}
+	.container_school{
+		display:none;
+	}
+	.container .container__coordinates {
+		flex-direction: column;
+    align-items: center;
+    margin:0;
+		li:not(:last-child){
+			margin:0 0 20px 0;
+		}
+	}
+	.about-classes--title,
+	.about-classes--content,
+	.list-foreseen-situations::after,
+	.main-container-list-teachers,
+	.container-cost .cost__title,
+	.simple-memorization-img span::after,
+	.iteration-img span::after{
+		background:none !Important;
+	}
+	.main-container-free-lesson,
+	.main-container-cost{
+		background-image:none !Important;
+	}
+
+	.container .image-situations .download-js,
+	.container .item-list-teachers .download-js,
+	.description-training__col .download-js,
+	.container .list-reviews__img .download-js,
+	.container-free-lesson-sm .download-js{
+		display:block;
+		margin:auto;
+		width:100px;
+	}
+	.main-container-list-teachers,
+	.container-cost .cost__title{
+		background-image:none !Important;
+	}
+
+}

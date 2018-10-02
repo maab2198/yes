@@ -1,0 +1,92 @@
+.about-classes--title,
+.list-situations-title,
+.list-teachers__tittle,
+.cost__title,
+.price,
+.description-training__main-title,
+.reviews__tittle,
+.free-lesson__title{
+	font-size:calc(15px + 1.57vw);
+}
+.about-classes--title{
+		margin:0 0 calc(30px + 2.3148vmin) 7%;/*5.0925vmin*/
+}
+.about-classes--content{
+	padding:0 0 calc(50px + 4.44vmin) 0;
+}
+.free-lesson__title{
+	margin:37.03vmin 0 calc(30px + 2.3148vmin) 7%;
+}
+.cost__title{
+	margin:0 0 calc(30px + 1.39vmin) 0;
+}
+.about-classes--title span {
+    font-size: calc(15px + 0.9895vw);
+}
+.trial-lesson__title{
+	font-size: calc(15px + 0.9895vw);
+}
+.description-situations__title,
+.foreseen-situations__title{
+	font-size:calc(15px + 1.71875vw);
+}
+
+.main-container-cost {
+	//background-image:url("../img/bigben.jpg");
+	background-repeat:no-repeat;
+	background-size:contain;
+  background-position:calc(-745px + 38.80vw) top;
+  margin-top: 4.63vmin;
+}
+.simple-memorization-img span::after{
+	transform: translateX(-50%);
+}
+.iteration-img span::after{
+	transform: translate(calc(-50% - 15px), 50%);
+}
+.foreseen-situations__title{
+	margin:15.5278vmin 15px calc(30px + 8.3333vmin);
+}
+.description-training__main-title{
+	margin:12.9629vmin 15px calc(30px + 6.4814vmin) 15px; /* 100px */
+}
+.reviews__tittle{
+	margin:7.40vmin 15px calc(30px + 8.33vmin);
+}
+@media all and (min-width: 1920px){
+	.main-container-cost {
+		background-position:left top;
+	}
+}
+@media all and (max-width: 1300px){
+	.main-container-cost {
+		background-position:calc(-745px + 36.80vw) top;
+	}
+	.container .simple-memorization-img span::after{
+		transform:translateX(calc(-100% + 10px));
+	}
+}
+@media all and (max-width:650px){
+	.container .image-situations img,
+	.container .item-list-teachers img,
+	.container .description-training__col span,
+	.container .list-reviews__img img,
+	.container-free-lesson-sm img{
+		width:calc(100vmin - 30px);
+	}
+	.main-container-cost{
+		//background:none;
+	}
+	.free-lesson__title {
+    margin:calc(30px + 2.3148vmin) 0;
+	}
+	.simple-memorization__title,
+	.dialogues__title,
+	.talk-listen__title,
+	.iteration__title {
+		background-image: url('../img/red-arrow.png') !Important;
+		background-repeat: no-repeat ;
+    background-position: left center;
+    background-size: auto;
+	}
+}

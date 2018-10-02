@@ -1,0 +1,68 @@
+.fonts( @fontWeight:lighter; @color:#141414;){
+	font-weight:@fontWeight;
+	color:@color;
+}
+
+@linkKolorHover:#f63244;
+
+/* margin-right for .about-classes--title,.about-classes--content,.recording-classes */
+@marginRight:7%;
+
+/* ::before for title */
+.beforeForTitle(
+				@content:"";
+				@position:absolute;
+				@bottom:2.1296vmin;
+				@left:0;
+				@width:60px;
+				@height: 9px;
+				@bg:#f63244;){
+	content:@content;
+	position:@position;
+	bottom:@bottom;
+	left:@left;
+	width:@width;
+  height:@height;
+  background-color:@bg;
+}
+
+/* button for recording for free lessons */
+@bcButtonRecordingClasses:#f5112c;
+.buttonRecordingClasses(){
+	background-color:@bcButtonRecordingClasses;
+	border:none;
+	border-radius:40px;
+	letter-spacing:1px;
+	box-shadow:0 7px 5px lighten(@bcButtonRecordingClasses,20%);
+	transition:box-shadow .2s;
+	cursor:pointer;
+	outline: none;
+}
+/* transition for .main-container-trial-lesson */
+.transitionTrialLesson(@prop:all; @time:.3s; @function:linear; @delay:.3s;){
+	transition:@prop @time @function @delay;
+}
+
+/* background for title description-training red arrow and word */
+.descriptionTraining__title-bg(/*@path:'img/simple-memorization__title-bg.png';*/){
+	/*
+	background:
+		url("../img/red-arrow.png"),
+		url("../@{path}");
+		*/
+	background-repeat:no-repeat, no-repeat;
+	background-position:left center, center top;
+	background-size:auto, contain;
+}
+
+/* background for description-training-img */
+.descriptionTraining__img-bg(@top; @left; @width; @height; @path){
+	content:"";
+	position:absolute;
+	top:@top;
+	left:@left;
+	width:@width;
+	height:@height;
+	background:url("../@{path}") no-repeat center/contain;
+}
+
